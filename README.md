@@ -1,1 +1,1 @@
-# skeptics-subscribers-impor
+# skeptics-subscribers-import
