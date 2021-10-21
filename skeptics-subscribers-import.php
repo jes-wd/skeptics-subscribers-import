@@ -91,7 +91,7 @@ class Skeptics_Subscribers_Import {
         // echo '</pre>';
     }
 
-    private static function format_user_data_for_wp_insert_user($subscriber) {
+    private static function format_user_data_for_wp_insert_user(array $subscriber) {
         $preformatted_username = $subscriber['First'] . $subscriber['Last'] . $subscriber['ID'];
         $username = self::format_to_class_friendly_string($preformatted_username);
         // the '4' below represents the minimum chars that can make up a valid email
@@ -132,11 +132,11 @@ class Skeptics_Subscribers_Import {
         }
     }
 
-    private static function format_to_class_friendly_string($string) {
+    private static function format_to_class_friendly_string(string $string) {
         return preg_replace('/\W+/', '', strtolower(strip_tags($string)));
     }
 
-    private static function replace_in_file($file_path, $old_text, $new_text) {
+    private static function replace_in_file(string $file_path, string $old_text, string $new_text) {
         $result = array('status' => 'error', 'message' => '');
         if (file_exists($file_path) === TRUE) {
 
